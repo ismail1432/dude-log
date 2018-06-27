@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% block body %}
+    {% if contacts is defined %}
+        <h1>Contact</h1>
+        {% for contact in contacts %}
+            <ul>
+                <li>{{ contact.name }}</li>
+                <li>{{ contact.firstname }}</li>
+            </ul>
+        {% endfor %}
+        {% else %}
+        <h1>No contacts !</h1>
+    {% endif %}
+    <a href="{{ path('add') }}">Add contact</a>
+{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>
